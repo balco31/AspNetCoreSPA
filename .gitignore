@@ -3,3 +3,5 @@
 ################################################################################
 
 /AspNetCoreSPA/obj
+/AspNetCoreSPA/bin/Debug/netcoreapp3.0
+/.vs/AspNetCoreSPA
