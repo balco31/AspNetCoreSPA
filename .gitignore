@@ -5,3 +5,10 @@
 /AspNetCoreSPA/obj
 /AspNetCoreSPA/bin/Debug/netcoreapp3.0
 /.vs/AspNetCoreSPA
+/Output/Debug
+/SecurityLib/bin/Debug
+/SecurityLib/obj
+/Services/obj
+/Services/bin/Debug/netcoreapp3.0
+/Interfaces/bin/Debug/netcoreapp3.0
+/Interfaces/obj

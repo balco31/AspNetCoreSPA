@@ -1,0 +1,67 @@
+﻿@model AspNetCoreSPA.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login Page";
+}
+
+    <form class="m-login__form m-form" asp-method="post" asp-controller="login" asp-action="index" role="form" novalidate="novalidate">
+
+        <div class="m-portlet m--block-center h-login-portlet">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text"></h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="m-portlet__body">
+
+                <div class="m-login__logo m--align-center m--padding-bottom-30">
+                    <a href="#">
+                        <img src="~/images/epsilonnet-logo.png">
+                    </a>
+                </div>
+
+                <div class="m-login__signin">
+                    <div class="m-login__head">
+                        <h3 class="m-login__title"></h3>
+                    </div>
+                    <div class="form-group m-form__group">
+                        <input autocomplete="off" class="form-control m-input m-input--air valid"
+                               data-val="true" data-val-required="The Username field is required." asp-for="UserName"
+                               placeholder="Username" type="text"
+                               aria-describedby="UserName-error" aria-invalid="false">
+                        <span class="text-danger field-validation-valid" asp-validation-for="UserName"></span>
+                    </div>
+                    <div class="form-group m-form__group">
+                        <div class="m-input-icon m-input-icon--right">
+                            <input class="form-control m-input m-input--air m-login__form-input--last valid"
+                                   data-val="true" data-val-required="The Password field is required."
+                                   asp-for="Password" placeholder="Password" type="password"
+                                   aria-describedby="Password-error" aria-invalid="false">
+                            <span class="m-input-icon__icon m-input-icon__icon--right h-switch-password-button">
+                                <span>
+                                    <i class="la la-eye-slash"></i>
+                                </span>
+                            </span>
+                        </div>
+                        <span class="text-danger field-validation-valid" asp-validation-for="Password"></span>
+                    </div>
+
+                    @*@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @Model.ErrorMessage
+                        </div>
+                    }*@
+                    <div class="m-login__form-action m--align-center m--padding-top-30">
+                        <input type="button" value="Sign In" onclick="EntryPoint.Login()"
+                               class="btn m-btn--pill m-btn--air btn-primary m-btn m-btn--custom">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
