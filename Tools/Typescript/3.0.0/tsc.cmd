@@ -1,0 +1,1 @@
+"%~dp0\..\..\Nodejs\node.exe"  "%~dp0\bin\tsc" %*

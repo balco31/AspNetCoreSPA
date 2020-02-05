@@ -43,6 +43,27 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <environment include="Production,Staging">
+        <script src="~/js/scripts.min.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Production,Staging">
+        <script src="~/js/scripts.js"></script>
+    </environment>
+
+     @{
+
+         var entryPoint = new {             
+             SessionId = "appContextHandler.GetContext().SessionId",
+            };
+         var modelSerialized = Json.Serialize(entryPoint, new Newtonsoft.Json.JsonSerializerSettings() { ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore });
+
+     }
+
+    <script>
+        var EntryPoint = new ClientScripts.Common.EntryPoint(@modelSerialized);
+        EntryPoint.OnInit();
+    </script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

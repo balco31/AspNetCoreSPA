@@ -67,6 +67,14 @@ namespace AspNetCoreSPA
                 });
             });
 
+            services.AddHttpContextAccessor();
+
+            services.AddCustomSession(options => {
+                options.Cookie.IsEssential = true;
+                options.IdleTimeout = TimeSpan.FromMinutes(Configuration.GetValue<double>("clientCookieTimeOut", 10));
+                options.Cookie.HttpOnly = true;
+            });
+
             services.Configure<RequestLocalizationOptions>(options => {
                 var supportedCultures = new[]
                 {

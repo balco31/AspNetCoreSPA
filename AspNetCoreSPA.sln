@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreSPA", "AspNetCore
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityLib", "SecurityLib\SecurityLib.csproj", "{285C0910-46B5-40D5-974F-949B325D3371}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{4860C84A-F16B-4B3C-8FB3-9D53D829DF97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\Interfaces.csproj", "{4860C84A-F16B-4B3C-8FB3-9D53D829DF97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{2ABDCA09-8E1A-4160-8732-74580E52E783}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{2ABDCA09-8E1A-4160-8732-74580E52E783}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientScripts", "ClientScripts\ClientScripts.csproj", "{2E1B68F7-7811-4AB8-B7F5-C829719E3EB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2ABDCA09-8E1A-4160-8732-74580E52E783}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ABDCA09-8E1A-4160-8732-74580E52E783}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ABDCA09-8E1A-4160-8732-74580E52E783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E1B68F7-7811-4AB8-B7F5-C829719E3EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E1B68F7-7811-4AB8-B7F5-C829719E3EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E1B68F7-7811-4AB8-B7F5-C829719E3EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E1B68F7-7811-4AB8-B7F5-C829719E3EB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

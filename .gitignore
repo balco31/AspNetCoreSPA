@@ -12,3 +12,5 @@
 /Services/bin/Debug/netcoreapp3.0
 /Interfaces/bin/Debug/netcoreapp3.0
 /Interfaces/obj
+/ClientScripts/bin/Debug
+/ClientScripts/obj/Debug

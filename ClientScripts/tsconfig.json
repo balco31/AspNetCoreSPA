@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "declaration": true,
+    "target": "es5",
+    "outFile": "bin/scripts.js",
+    "typeRoots": [ "./Typings" ]
+  },
+  "include": [
+    "Common/**/*.ts"
+  ]
+}
