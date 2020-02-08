@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Common\EntryPoint.ts" />
+    <TypeScriptCompile Include="Common\Interfaces.ts" />
     <TypeScriptCompile Include="Typings\es6-promise\index.d.ts" />
     <TypeScriptCompile Include="Typings\jquery\index.d.ts" />
   </ItemGroup>

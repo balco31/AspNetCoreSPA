@@ -6,21 +6,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AspNetCoreSPA.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AspNetCoreSPA.Controllers
 {
-    public class HomeController : Controller
+    [Authorize(Policy = "MyPolicy")]
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IServiceProvider serviceProvider): base(serviceProvider)
         {
             _logger = logger;
         }
-
+      
         public IActionResult Index()
         {
-            return View();
+            var isPartialCall = _httpContextAccessor.HttpContext.Request.Headers["viewtype"] == "partials";
+            if (isPartialCall)
+            {
+            }
+            return CustomView();
         }
 
         public IActionResult Privacy()

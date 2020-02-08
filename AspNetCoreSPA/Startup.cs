@@ -7,6 +7,7 @@ using AspNetCoreSPA.Code;
 using Interfaces;
 using Interfaces.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -66,6 +67,7 @@ namespace AspNetCoreSPA
                     policy.Build();
                 });
             });
+            services.AddScoped<IAuthorizationHandler, CustomAuthorizationHandler>();
 
             services.AddHttpContextAccessor();
 
@@ -122,14 +124,14 @@ namespace AspNetCoreSPA
             app.UseAuthentication();
             app.UseCustomSession();
             app.UseRequestLocalization();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}")
+                .RequireAuthorization("MyPolicy");
+                
             });
         }
     }

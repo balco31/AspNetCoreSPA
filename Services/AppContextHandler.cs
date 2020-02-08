@@ -18,8 +18,8 @@ namespace Services
 
         public ApplicationContext GetContext()
         {
-            var actualObject = _serviceProvider.GetService(typeof(ApplicationContext));
-            var returnValue = this._httpContextAccessor.HttpContext.Session.Get("WebAppContext", actualObject.GetType()) as ApplicationContext;
+         //   var actualObject = _serviceProvider.GetService(typeof(ApplicationContext));
+            var returnValue = this._httpContextAccessor.HttpContext.Session.Get<ApplicationContext>("WebAppContext") as ApplicationContext;
             return returnValue;
         }
 
