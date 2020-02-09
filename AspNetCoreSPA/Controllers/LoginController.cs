@@ -18,7 +18,7 @@ namespace AspNetCoreSPA.Controllers
     public class LoginController : BaseController
     {
 
-        public LoginController(IServiceProvider serviceProvider): base(serviceProvider)
+        public LoginController(IServiceProvider serviceProvider) : base(serviceProvider)
         {
         }
 
@@ -65,12 +65,17 @@ namespace AspNetCoreSPA.Controllers
             }
         }
 
-        
-        public IActionResult Logout()
+        [HttpPost]
+        public async Task<IActionResult> Logout()
         {
+            HttpContext.Session.Clear();
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            foreach (var cookieKey in Request.Cookies.Keys)
+            {
+                Response.Cookies.Delete(cookieKey);
+            }
 
-            return View();
+            return AjaxActionSuccess(new { success = true });
         }
-        
     }
 }

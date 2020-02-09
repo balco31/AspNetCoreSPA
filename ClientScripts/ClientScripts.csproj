@@ -47,10 +47,20 @@
     <None Include="tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Common\ArrayExtensions.ts" />
+    <TypeScriptCompile Include="Common\CustomRouter.ts" />
     <TypeScriptCompile Include="Common\EntryPoint.ts" />
+    <TypeScriptCompile Include="Common\Helpers.ts" />
     <TypeScriptCompile Include="Common\Interfaces.ts" />
     <TypeScriptCompile Include="Typings\es6-promise\index.d.ts" />
     <TypeScriptCompile Include="Typings\jquery\index.d.ts" />
+    <TypeScriptCompile Include="Typings\kendo\kendo.all.d.ts" />
+    <TypeScriptCompile Include="ViewModels\EntryPointVM.ts" />
+    <TypeScriptCompile Include="Views\file1.ts" />
+    <TypeScriptCompile Include="Views\IView.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Typings\kendo-ui\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

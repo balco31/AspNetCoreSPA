@@ -117,5 +117,11 @@ namespace AspNetCoreSPA.Controllers
 				return View(model);
 			}
 		}
+
+		protected JsonResult AjaxActionSuccess(object model)
+		{
+			return Json(new { success = true, model = model });
+		}
+
 	}
 }

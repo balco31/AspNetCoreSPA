@@ -1,16 +1,43 @@
-﻿namespace ClientScripts.Common {
+﻿/// <reference path="../Views/IView.ts" />
+/// <reference path="../Typings/kendo/index.d.ts"/>
+
+namespace ClientScripts.Common {
+    import helpers = ClientScripts.Common;
     export class EntryPoint {
         private _session: string;
         private _lastHttpActivityTimestamp: Date = new Date();
+        public Router: CustomRouter;
 
         constructor(private _viewModelObject: object) {
             console.log('Entry Point');
         }
         public async OnInit(): Promise<void> {
+            let self = this;
+            this._session = helpers.GetUrlParams()["session"]; //initialise session from Url
+
+            this.Router = new CustomRouter();
+            this.Router.entryPoint = this;
+            //this.Router.start();
+
             $(function () {
+                self.Router.start();
+
+                let pathName = location.pathname;
+
+                if (self._viewModelObject) {
+                    self.Router.navigate("/");
+                    self.Router.navigate(pathName);
+                }
             });
         } 
 
+        public async Logout(): Promise<void> {
+            let result = await this.AjaxCall<AjaxResult<{ success: boolean }>>({
+                url: "/Login/Logout",
+                method: "POST"
+            });
+            window.location.href = "/login/index";
+        }
 
         public async Login() {
             var $form = $(".m-login__form");

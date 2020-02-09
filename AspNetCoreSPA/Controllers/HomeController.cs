@@ -31,7 +31,7 @@ namespace AspNetCoreSPA.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            return CustomView();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -35,10 +35,7 @@
         <main role="main" class="pb-3">
             <div class="m-wrapper">
                 <div id="partialViewWrapper">
-                    @*@RenderBody()*@
-                    @{
-                        IgnoreBody();
-                    }
+                    @RenderBody()
                 </div>
             </div>
         </main>
@@ -62,17 +59,8 @@
         <script src="~/js/scripts.js"></script>
     </environment>
 
-     @{
-
-         var entryPoint = new {             
-             SessionId = "appContextHandler.GetContext().SessionId",
-            };
-         var modelSerialized = Json.Serialize(entryPoint, new Newtonsoft.Json.JsonSerializerSettings() { ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore });
-
-     }
-
     <script>
-        var EntryPoint = new ClientScripts.Common.EntryPoint(@modelSerialized);
+        var EntryPoint = new ClientScripts.Common.EntryPoint(null);
         EntryPoint.OnInit();
     </script>
 
