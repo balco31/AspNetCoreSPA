@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AspNetCoreSPA.Controllers
 {
+    [Route("")]
+    [Route("Home")]
     [Authorize(Policy = "MyPolicy")]
     public class HomeController : BaseController
     {
@@ -19,7 +21,9 @@ namespace AspNetCoreSPA.Controllers
         {
             _logger = logger;
         }
-      
+
+        [Route("")]
+        [Route("Index")]
         public IActionResult Index()
         {
             var isPartialCall = _httpContextAccessor.HttpContext.Request.Headers["viewtype"] == "partials";
@@ -29,11 +33,14 @@ namespace AspNetCoreSPA.Controllers
             return CustomView();
         }
 
+        [Route("Privacy")]
+
         public IActionResult Privacy()
         {
             return CustomView();
         }
 
+        [Route("Error")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
