@@ -74,11 +74,21 @@ declare namespace ClientScripts.Views {
         IsModal: boolean;
     }
 }
+declare namespace ClientScripts.ViewModels {
+    class EntryPointVM {
+        private _observable;
+        constructor(_observable: kendo.Observable);
+        readonly SessionId: string;
+        PropertyName: string;
+    }
+}
 declare namespace ClientScripts.Common {
     class EntryPoint {
         private _viewModelObject;
         private _session;
+        private _observableObject;
         private _lastHttpActivityTimestamp;
+        private _viewModel;
         Router: CustomRouter;
         constructor(_viewModelObject: object);
         OnInit(): Promise<void>;
@@ -90,6 +100,7 @@ declare namespace ClientScripts.Common {
     }
 }
 declare namespace ClientScripts.Common {
+    function NewGuid(): string;
     function ShowLoaderOverElement(targetElement: any, backgroundColor?: any, opacity?: any): void;
     function HideLoaderOverElement(targetElement: any): void;
     function GetUrlParams(): any[];
@@ -110,5 +121,30 @@ declare namespace ClientScripts.Common {
         Info = 0,
         Warning = 1,
         Exception = 2
+    }
+}
+declare namespace ClientScripts.ViewModels {
+    class AnotherVM {
+        private _observable;
+        constructor(_observable: kendo.Observable);
+        Info: string;
+    }
+}
+declare namespace ClientScripts.Views {
+    class AnotherView implements IView {
+        private _viewModelObject;
+        protected _controllerName: string;
+        private _pageTitle;
+        private _viewModel;
+        private _observableObject;
+        constructor(_viewModelObject: object, _controllerName: string, _pageTitle: string);
+        OnInit(): Promise<void>;
+        destroy(): void;
+        EntryPoint: Common.EntryPoint;
+        IsModal: boolean;
+    }
+}
+declare namespace ClientScripts.Views {
+    class View {
     }
 }

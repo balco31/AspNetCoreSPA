@@ -1,9 +1,17 @@
 ﻿@model AnotherViewModel
 @{
     ViewData["Title"] = "Index";
+    var @modelSerialized = Json.Serialize(Model, new Newtonsoft.Json.JsonSerializerSettings() { ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore });
+    var controllerName = this.ViewContext.RouteData.Values["controller"].ToString();
+
 }
 
 <h1>Another Controller</h1>
 
 <h2>@Model.Info</h2>
 
+<script charset="utf-8">
+    (function () {
+         EntryPoint.Router.RegisterView(new ClientScripts.Views.AnotherView(@modelSerialized, '@controllerName', '@Html.Raw(ViewData["Title"])'), @ViewData["IsModal"].ToString().ToLower()).OnInit();
+    })();
+</script>

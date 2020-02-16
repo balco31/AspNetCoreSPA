@@ -70,7 +70,7 @@
      @{
 
          var entryPoint = new {             
-             SessionId = "appContextHandler.GetContext().SessionId",
+             SessionId = appContextHandler.GetContext().SessionId,
             };
          var modelSerialized = Json.Serialize(entryPoint, new Newtonsoft.Json.JsonSerializerSettings() { ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore });
 

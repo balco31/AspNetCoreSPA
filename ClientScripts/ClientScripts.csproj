@@ -55,7 +55,9 @@
     <TypeScriptCompile Include="Typings\es6-promise\index.d.ts" />
     <TypeScriptCompile Include="Typings\jquery\index.d.ts" />
     <TypeScriptCompile Include="Typings\kendo\kendo.all.d.ts" />
+    <TypeScriptCompile Include="ViewModels\AnotherVM.ts" />
     <TypeScriptCompile Include="ViewModels\EntryPointVM.ts" />
+    <TypeScriptCompile Include="Views\AnotherView.ts" />
     <TypeScriptCompile Include="Views\file1.ts" />
     <TypeScriptCompile Include="Views\IView.ts" />
   </ItemGroup>

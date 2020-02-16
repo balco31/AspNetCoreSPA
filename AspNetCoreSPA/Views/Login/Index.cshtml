@@ -47,12 +47,12 @@
                         <span class="text-danger field-validation-valid" asp-validation-for="Password"></span>
                     </div>
 
-                    @*@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    @if (!string.IsNullOrEmpty(Model?.ErrorMessage))
                     {
                         <div class="alert alert-danger" role="alert">
                             @Model.ErrorMessage
                         </div>
-                    }*@
+                    }
                     <div class="m-login__form-action m--align-center m--padding-top-30">
                         <input type="button" value="Sign In" onclick="EntryPoint.Login()"
                                class="btn m-btn--pill m-btn--air btn-primary m-btn m-btn--custom">

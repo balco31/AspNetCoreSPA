@@ -11,6 +11,8 @@
     "typeRoots": [ "./Typings" ]
   },
   "include": [
-    "Common/**/*.ts"
+    "Common/**/*.ts",
+    "Views/**/*.ts",
+    "ViewModels/**/*.ts"
   ]
 }

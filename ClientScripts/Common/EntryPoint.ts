@@ -1,11 +1,14 @@
 ﻿/// <reference path="../Views/IView.ts" />
 /// <reference path="../Typings/kendo/index.d.ts"/>
+/// <reference path="../ViewModels/EntryPointVM.ts" />
 
 namespace ClientScripts.Common {
     import helpers = ClientScripts.Common;
     export class EntryPoint {
         private _session: string;
+        private _observableObject: kendo.Observable;
         private _lastHttpActivityTimestamp: Date = new Date();
+        private _viewModel: ClientScripts.ViewModels.EntryPointVM;
         public Router: CustomRouter;
 
         constructor(private _viewModelObject: object) {
@@ -17,7 +20,16 @@ namespace ClientScripts.Common {
 
             this.Router = new CustomRouter();
             this.Router.entryPoint = this;
-            //this.Router.start();
+
+            if (self._viewModelObject != null) {
+                this._observableObject = (kendo.observable(this._viewModelObject) as any);
+                this._viewModel = new ClientScripts.ViewModels.EntryPointVM(this._observableObject);
+            }
+            else {
+                // When we have not _viewModelObject this is the Case EntryPoint is instantiated in login Index page 
+                //so in this case we set in SessionStorage a sessionKey a unique Identifier for this current Session.
+                sessionStorage.setItem("sessionKey", helpers.NewGuid());
+            }
 
             $(function () {
                 self.Router.start();

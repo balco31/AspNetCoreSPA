@@ -1,8 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var loggedInUser = appContextHandler.GetContext().UserName;
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Welcome</h1> 
+    <h2> user: @loggedInUser </h2>
+    <h5> session: @appContextHandler.GetContext().SessionId</h5>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

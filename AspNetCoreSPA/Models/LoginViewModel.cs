@@ -10,7 +10,6 @@ namespace AspNetCoreSPA.Models
     public class LoginViewModel
     {
         [Required]
-        [EmailAddress]
         [DisplayName("User")]
         public string UserName { get; set; }
 

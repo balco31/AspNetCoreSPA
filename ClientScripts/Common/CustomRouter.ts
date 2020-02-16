@@ -16,7 +16,7 @@
                 pushState: true,
                 root: "/",
                 routeMissing: (e) => {
-                    console.log("missinge route", e.url, e.params);
+                   // console.log("missinge route", e.url, e.params);
                 }
             });
             let self = this;
